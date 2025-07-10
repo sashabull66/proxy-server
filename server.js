@@ -6,9 +6,18 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// Разрешенные домены (ваш фронтенд + локальная разработка)
+const allowedOrigins = [
+    'https://smart-id-dev.netlify.app',
+    'http://localhost',
+    /^http:\/\/localhost:\d+$/ // Все локальные порты
+];
+
+// Настройка CORS
 app.use(cors({
-    origin: 'https://smart-id-dev.netlify.app' // Разрешаем только ваш фронтенд
+    origin: allowedOrigins,
+    methods: ['POST', 'OPTIONS'], // Разрешаем только нужные методы
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(bodyParser.json()); // Для обработки JSON-тела запроса
 
