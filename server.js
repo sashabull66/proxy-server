@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Разрешенные домены (ваш фронтенд + локальная разработка)
 const allowedOrigins = [
     'https://smart-id-dev.netlify.app',
-    'https://smart-code-preprod.netlify.app',
+    'https://smart-code-dev.netlify.app',
     'http://localhost',
     /^http:\/\/localhost:\d+$/ // Все локальные порты
 ];
